@@ -26,14 +26,14 @@ export default {
                 return [];
             }
         },
-        selectType: {  // 选择类型
-            type: Number,
-            default: ALL
-        },
-        onlyContent: {  // 只显示内容
-            type: Boolean,
-            default: false
-        },
+        // selectType: {  // 选择类型
+        //     type: Number,
+        //     default: ALL
+        // },
+        // onlyContent: {  // 只显示内容
+        //     type: Boolean,
+        //     default: false
+        // },
         desc: {
             type: Object,
             default() {

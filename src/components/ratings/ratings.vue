@@ -79,7 +79,7 @@ export default {
         return {
             ratings: [],
             selectType: ALL,
-            onlyContent: true,
+            // onlyContent: true,
         };
     },
     created() {
