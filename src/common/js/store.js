@@ -12,7 +12,7 @@ export function saveToLocal(id, key, value) {
     seller[id][key] = value;
     window.localStorage._seller_ = JSON.stringify(seller);
 };
-export function loadFromLoc(id, key, def) {
+export function loadFromLocal(id, key, def) {
     let seller = window.localStorage._seller_;
     if(!seller) {
         return def;
