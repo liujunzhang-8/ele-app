@@ -79,7 +79,7 @@ export default {
         return {
             ratings: [],
             selectType: ALL,
-            // onlyContent: true,
+            onlyContent: true,
         };
     },
     created() {
@@ -127,7 +127,7 @@ export default {
     filters: {
         formatDate(time) {
             let date = new Date(time);
-            return formatDate(data, 'yyyy-MM-dd hh:mm')
+            return formatDate(date, 'yyyy-MM-dd hh:mm')
         }
     }
 }
