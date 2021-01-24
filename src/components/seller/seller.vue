@@ -1,6 +1,6 @@
 <template>
   <!-- 商家部分 -->
-  <div class="seller" ref="seller">
+  <div class="seller" ref='seller'>
     <div class="seller-content">
       <div class="overview">
         <h1 class="title">{{ seller.name }}</h1>
@@ -99,37 +99,20 @@ export default {
             })()
         }
     },
-    computed: {
-        favoriteText() {
-            return this.favorite ? '已收藏' : '收藏';
-        }
+    components: {
+        star,
+        split,
     },
     created() {
         this.classMap = ['decrease','discount','special','invoice','guarantee'];
     },
-    watch: {
-        'seller'() {
-            this._initScroll();
-            this._initPics();
-        }
-    },
-    ready() {
+    mounted() {
         this._initScroll();
         this._initPics();
     },
-    mounted() {
-        // 商家图片横向滚动
-        if(this.seller.pics) {
-            let picWidth = 120;
-            let margin = 6;
-            let width = (picWidth + margin) * this.seller.pics.length - margin;
-            this.$refs.picList.style.width = width + 'px';
-            this.$nextTick(() => {
-                this.picScroll = new BScroll(this.$refs.picWrapper, {
-                    scrollX: true, // 横向滚动
-                    eventPassthrough: 'vertical' // 忽略垂直方向的滚动
-                });
-            });
+    computed: {
+        favoriteText() {
+            return this.favorite ? '已收藏' : '收藏';
         }
     },
     methods: {
@@ -137,7 +120,7 @@ export default {
             if(!this.scroll) {
                 // 页面整体滚动
                 this.scroll = new BScroll(this.$refs.seller, {
-                click: true
+                    click: true
                 });
             } else {
                 this.scroll.refresh();
@@ -169,10 +152,6 @@ export default {
             this.favorite = !this.favorite;
             saveToLocal(this.seller.id, 'favorite', this.favorite);
         }
-    },
-    components: {
-        star,
-        split,
     }
 }
 </script>
@@ -319,10 +298,9 @@ export default {
             line-height 14px
             font-size 14px
             border-1px(rgba(7, 17, 27, 0.1))
-            font-size 14px
         .info-item
             padding 16px 12px
             line-height 16px
-            border-1px(rgba(7, 17, 27, 0.1))
-            font-weight 200
+            font-size 12px
+            border-1px(rgba(7, 17, 27, 0.1)) 
 </style>
